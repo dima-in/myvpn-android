@@ -1,0 +1,14 @@
+# Android Studio
+.gradle/
+.idea/
+local.properties
+captures/
+
+# Build outputs
+build/
+app/build/
+
+# OS / editor
+*.iml
+Thumbs.db
+Desktop.ini
