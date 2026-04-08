@@ -22,7 +22,7 @@ How to use it:
 Build:
 
 ```powershell
-cd C:\Users\fb.cadman\v2ray-android
+cd C:\Users\v2ray-android
 ```
 
 Then open the folder in Android Studio and let it:
@@ -34,9 +34,3 @@ Then open the folder in Android Studio and let it:
 Prerequisites on the work computer:
 - Android Studio with SDK 35
 - JDK 17 (bundled with recent Android Studio)
-
-Server profile currently embedded:
-- address: `138.249.117.110`
-- port: `8443`
-- protocol: `VLESS + Reality`
-- SNI: `www.google.com`
