@@ -24,7 +24,7 @@ What it does not do:
 Build:
 
 ```powershell
-cd C:\Users\fb.cadman\v2ray-android
+cd C:\Users\v2ray-android
 ```
 
 Then open the folder in Android Studio and let it:
