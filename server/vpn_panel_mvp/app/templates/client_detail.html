@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Клиент {{ client.name }}</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <main class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;">
+      <a href="/" class="back">Назад</a>
+      <a href="/logout" class="button small">Выйти</a>
+    </div>
+
+    <section class="card">
+      <h1>{{ client.name }}</h1>
+      <p><strong>UUID:</strong> {{ client.uuid }}</p>
+      <p><strong>Создан:</strong> {{ client.created_at }}</p>
+      <p><strong>Статус:</strong> {% if client.is_active %}Активен{% else %}Отключен{% endif %}</p>
+      <p><strong>Заметка:</strong> {{ client.note }}</p>
+      <p><strong>Лимит:</strong> 1 UUID = 1 устройство</p>
+    </section>
+
+    <section class="card">
+      <h2>Ссылка</h2>
+      <textarea rows="5" readonly>{{ link }}</textarea>
+    </section>
+
+    <section class="card">
+      <h2>QR</h2>
+      <img src="{{ qr_url }}" alt="QR code" class="qr">
+      <p style="margin-top: 12px;">
+        <a href="{{ package_url }}" class="button">Скачать пакет клиента</a>
+      </p>
+    </section>
+  </main>
+</body>
+</html>
