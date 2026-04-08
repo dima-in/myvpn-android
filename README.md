@@ -1,4 +1,12 @@
-# MyVpn Android
+# MyVpn
+
+Repository for the Android client and the VPN panel backend.
+
+Structure:
+- `app/` and root Gradle files: Android client
+- `server/vpn_panel_mvp/`: FastAPI admin panel for Xray/VLESS Reality
+
+## Android client
 
 Minimal Android companion app for your Xray server.
 
@@ -13,12 +21,6 @@ What it does not do:
 - it does not embed `xray-core`
 - it does not create a system VPN tunnel by itself
 
-How to use it:
-- install the APK on Android
-- install a compatible client such as `v2rayNG`
-- press `Open In VPN Client` in the app
-- if direct opening is not handled, copy the `VLESS URI` and import it manually
-
 Build:
 
 ```powershell
@@ -31,12 +33,20 @@ Then open the folder in Android Studio and let it:
 - sync the project
 - run `assembleDebug`
 
-Prerequisites on the work computer:
+Prerequisites:
 - Android Studio with SDK 35
-- JDK 17 (bundled with recent Android Studio)
+- JDK 17
 
-Server profile currently embedded:
-- address: `138.249.117.110`
-- port: `8443`
-- protocol: `VLESS + Reality`
-- SNI: `www.google.com`
+## VPN panel backend
+
+FastAPI panel for managing Xray clients.
+
+Features:
+- clients list
+- create / enable / disable / delete client
+- VLESS link generation
+- QR generation
+- accumulated traffic stats
+- login page protected by `APP_SECRET`
+
+Backend code is in [`server/vpn_panel_mvp`](server/vpn_panel_mvp).
