@@ -1,0 +1,16 @@
+---
+- name: Configure Xray nodes
+  hosts: vpn_nodes
+  become: true
+  gather_facts: false
+
+  pre_tasks:
+    - name: Ensure Python 3 is present
+      ansible.builtin.raw: test -e /usr/bin/python3 || (apt-get update && apt-get install -y python3)
+      changed_when: false
+
+    - name: Gather facts after Python bootstrap
+      ansible.builtin.setup:
+
+  roles:
+    - role: xray

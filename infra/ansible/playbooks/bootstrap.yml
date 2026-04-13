@@ -1,0 +1,21 @@
+---
+- name: Prepare VPN nodes
+  hosts: vpn_nodes
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Ensure Python 3 is present on Debian-based systems
+      ansible.builtin.raw: test -e /usr/bin/python3 || (apt-get update && apt-get install -y python3)
+      changed_when: false
+
+    - name: Gather facts after Python bootstrap
+      ansible.builtin.setup:
+
+    - name: Collect a short node summary
+      ansible.builtin.debug:
+        msg:
+          - "inventory_name={{ inventory_hostname }}"
+          - "public_ip={{ ansible_host }}"
+          - "location={{ node_location | default('n/a') }}"
+          - "os={{ ansible_distribution }} {{ ansible_distribution_version }}"

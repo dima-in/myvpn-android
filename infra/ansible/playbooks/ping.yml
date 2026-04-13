@@ -1,0 +1,8 @@
+---
+- name: Check connectivity to VPN nodes
+  hosts: vpn_nodes
+  gather_facts: false
+
+  tasks:
+    - name: Verify SSH + Python access
+      ansible.builtin.ping:

@@ -1,0 +1,4 @@
+inventory/hosts.yml
+inventory/group_vars/vpn_nodes.yml
+inventory/host_vars/*.yml
+!inventory/host_vars/.gitkeep
