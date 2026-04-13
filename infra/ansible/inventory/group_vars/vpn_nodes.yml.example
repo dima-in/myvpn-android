@@ -1,0 +1,18 @@
+---
+ansible_user: root
+
+xray_version: "1.8.24"
+xray_service_name: xray
+xray_listen: 0.0.0.0
+xray_port: 443
+xray_flow: xtls-rprx-vision
+xray_dest: www.cloudflare.com:443
+xray_server_names:
+  - www.cloudflare.com
+  - www.microsoft.com
+xray_client_id: "00000000-0000-0000-0000-000000000000"
+xray_reality_private_key: "REPLACE_WITH_PRIVATE_KEY"
+xray_reality_short_ids:
+  - "0123456789abcdef"
+xray_enable_xtls_vision: true
+xray_log_loglevel: warning
