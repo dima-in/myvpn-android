@@ -1,0 +1,39 @@
+---
+xray_version: "1.8.24"
+xray_service_name: xray
+xray_user: xray
+xray_group: xray
+xray_install_dir: /usr/local/bin
+xray_config_dir: /usr/local/etc/xray
+xray_data_dir: /usr/local/share/xray
+xray_log_dir: /var/log/xray
+xray_runtime_dir: /run/xray
+xray_tmp_dir: /tmp/xray-install
+xray_binary_path: "{{ xray_install_dir }}/xray"
+xray_config_path: "{{ xray_config_dir }}/config.json"
+xray_service_path: /etc/systemd/system/{{ xray_service_name }}.service
+xray_download_base: "https://github.com/XTLS/Xray-core/releases/download"
+xray_arch_map:
+  x86_64: 64
+  amd64: 64
+  aarch64: arm64-v8a
+  arm64: arm64-v8a
+xray_archive_arch: "{{ xray_arch_map.get(ansible_architecture, '') }}"
+xray_archive_name: "Xray-linux-{{ xray_archive_arch }}.zip"
+xray_download_url: "{{ xray_download_base }}/v{{ xray_version }}/{{ xray_archive_name }}"
+xray_listen: 0.0.0.0
+xray_port: 443
+xray_network: tcp
+xray_security: reality
+xray_flow: xtls-rprx-vision
+xray_dest: www.cloudflare.com:443
+xray_server_names:
+  - www.cloudflare.com
+xray_client_id: ""
+xray_reality_private_key: ""
+xray_reality_short_ids: []
+xray_reality_server_name: "{{ inventory_hostname }}"
+xray_enable_xtls_vision: true
+xray_log_access: "{{ xray_log_dir }}/access.log"
+xray_log_error: "{{ xray_log_dir }}/error.log"
+xray_log_loglevel: warning
